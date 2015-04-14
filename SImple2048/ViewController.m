@@ -76,8 +76,7 @@
     _scene = scene;
     _scene.delegate = self;
     
-    [_gameManager startNewSessionWithScene:_scene];
-//    [self updateAppearance];
+    [self updateAppearance];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -110,16 +109,16 @@
 //Update appearance according to loaded data by gameManager
 - (void)updateAppearance
 {
-    NSMutableArray *currentTiles = [[NSMutableArray alloc] init];
+    NSMutableArray *cellsWithTile = [[NSMutableArray alloc] init];
     NSString *path = [_gameManager archivePath];
     
-    currentTiles = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
+    cellsWithTile = [NSKeyedUnarchiver unarchiveObjectWithFile:path];
     
-    if (!currentTiles) {
+    if (!cellsWithTile) {
         [_gameManager startNewSessionWithScene:_scene];
     } else {
         _scoreView.score.text = [NSString stringWithFormat:@"%ld", (long)[Settings integerForKey:currentScore]];
-        [_gameManager loadStatus:currentTiles onScene:_scene];
+        [_gameManager loadStatus:cellsWithTile onScene:_scene];
     }
 }
 

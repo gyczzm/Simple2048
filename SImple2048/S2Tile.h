@@ -28,6 +28,9 @@
 //Value of the tile with specific power of 2
 - (NSInteger)valueForPower:(NSInteger)power;
 
+//Refresh value label of the tile
+- (void)refreshValue;
+
 //Run and then remove pending actions
 - (void)commitPendingAcitons;
 
@@ -36,12 +39,6 @@
 
 //Remove current tile from cell with optional animation
 - (void)removeAnimated:(BOOL)animated;
-
-//Save current status when user quits game
-- (void)encodeWithCoder:(NSCoder *)aCoder;
-
-//Load tile status when game starts
-- (instancetype)initWithCoder:(NSCoder *)aDecoder;
 
 
 @end

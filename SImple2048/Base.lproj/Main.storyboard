@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nOE-lo-nZY">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="nOE-lo-nZY">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PoS-D7-rvG" userLabel="ScoreView" customClass="S2ScoreView">
@@ -127,6 +127,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="nOE-lo-nZY" secondAttribute="trailing" id="6VW-55-fLH"/>
+                            <constraint firstItem="nOE-lo-nZY" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" id="PVp-5C-Sz3"/>
+                            <constraint firstItem="nOE-lo-nZY" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="SsH-pg-buy"/>
+                            <constraint firstAttribute="bottom" secondItem="nOE-lo-nZY" secondAttribute="bottom" id="vDD-hg-pe8"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="_bestView" destination="8FI-ha-9Bu" id="Fih-q6-bv5"/>

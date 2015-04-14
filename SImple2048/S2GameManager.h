@@ -24,12 +24,13 @@ typedef NS_ENUM(NSInteger, S2Direction){
 
 - (void)moveToDirection:(NSInteger)direction;
 
-- (NSMutableArray *)currentTiles;
+- (NSMutableArray *)cellsWithTile;
 
 - (NSString *)archivePath;
 
 - (BOOL)saveStatus;
 
 - (void)loadStatus:(NSMutableArray *)keyedUnarchiver onScene:(S2Scene *)scene;
+
 
 @end

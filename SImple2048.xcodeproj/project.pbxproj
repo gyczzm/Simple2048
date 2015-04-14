@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A253890A1ADCE785009416AD /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = A25389091ADCE784009416AD /* Position.m */; };
+		A253890D1ADD0A00009416AD /* Position.m in Sources */ = {isa = PBXBuildFile; fileRef = A253890C1ADD0A00009416AD /* Position.m */; };
 		A25F91C81AD7A5360014BE1F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A25F91C71AD7A5360014BE1F /* main.m */; };
 		A25F91CB1AD7A5360014BE1F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A25F91CA1AD7A5360014BE1F /* AppDelegate.m */; };
 		A25F91CE1AD7A5360014BE1F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A25F91CD1AD7A5360014BE1F /* ViewController.m */; };
@@ -41,8 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A25389081ADCE784009416AD /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Position.h; path = ../Position.h; sourceTree = "<group>"; };
-		A25389091ADCE784009416AD /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Position.m; path = ../Position.m; sourceTree = "<group>"; };
+		A253890B1ADD0A00009416AD /* Position.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
+		A253890C1ADD0A00009416AD /* Position.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Position.m; sourceTree = "<group>"; };
 		A25F91C21AD7A5360014BE1F /* SImple2048.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SImple2048.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A25F91C61AD7A5360014BE1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A25F91C71AD7A5360014BE1F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -177,10 +177,10 @@
 		A25F91F41AD7A6AB0014BE1F /* Appearance */ = {
 			isa = PBXGroup;
 			children = (
-				A25389081ADCE784009416AD /* Position.h */,
-				A25389091ADCE784009416AD /* Position.m */,
 				A25F920E1AD7A8350014BE1F /* S2Appearance.h */,
 				A25F920F1AD7A8350014BE1F /* S2Appearance.m */,
+				A253890B1ADD0A00009416AD /* Position.h */,
+				A253890C1ADD0A00009416AD /* Position.m */,
 			);
 			name = Appearance;
 			sourceTree = "<group>";
@@ -332,7 +332,7 @@
 				A25F91CB1AD7A5360014BE1F /* AppDelegate.m in Sources */,
 				A25F92101AD7A8350014BE1F /* S2Appearance.m in Sources */,
 				A25F92041AD7A7480014BE1F /* S2Grid.m in Sources */,
-				A253890A1ADCE785009416AD /* Position.m in Sources */,
+				A253890D1ADD0A00009416AD /* Position.m in Sources */,
 				A25F92191AD7A8750014BE1F /* S2ScoreView.m in Sources */,
 				A25F91C81AD7A5360014BE1F /* main.m in Sources */,
 				A25F92071AD7A76B0014BE1F /* S2Scene.m in Sources */,

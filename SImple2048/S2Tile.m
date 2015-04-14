@@ -188,40 +188,4 @@
                                       [SKAction group:@[restore, moveBack]]]];
 }
 
-#pragma mark - Archiving
-
-- (void)encodeWithCoder:(NSCoder *)aCoder
-{
-    [aCoder encodeInteger:self.power forKey:@"power"];
-    [aCoder encodeCGPoint:self.position forKey:@"position"];
-}
-
-- (instancetype)initWithCoder:(NSCoder *)aDecoder
-{
-    if (self = [super init]) {
-        //Initiate the tile,which follows the same steps as designated init method
-        CGRect rect = CGRectMake(0, 0, TILE_SIZE, TILE_SIZE);
-        CGPathRef rectPath = CGPathCreateWithRoundedRect(rect, CORNER_RADIUS, CORNER_RADIUS, NULL);
-        self.path = rectPath;
-        CFRelease(rectPath);
-        self.lineWidth = 0;
-        
-        _pendingActions = [[NSMutableArray alloc] init];
-        
-        _value = [SKLabelNode labelNodeWithFontNamed:BOLD_FONT_NAME];
-        _value.position = CGPointMake(TILE_SIZE / 2, TILE_SIZE / 2);
-        _value.horizontalAlignmentMode = SKLabelHorizontalAlignmentModeCenter;
-        _value.verticalAlignmentMode = SKLabelVerticalAlignmentModeCenter;
-        [self addChild:_value];
-        
-        //Initiate value label with archived value
-        self.power = [aDecoder decodeIntegerForKey:@"power"];
-        [self refreshValue];
-        
-        //Initiate position
-        self.position = [aDecoder decodeCGPointForKey:@"position"];
-    }
-    return self;
-}
-
 @end

@@ -19,4 +19,10 @@
 
 - (instancetype)initWithPosition:(S2Position)position;
 
+//Save current status when user quits game
+- (void)encodeWithCoder:(NSCoder *)aCoder;
+
+//Load tile status when game starts
+- (instancetype)initWithCoder:(NSCoder *)aDecoder;
+
 @end

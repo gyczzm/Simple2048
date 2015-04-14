@@ -204,24 +204,24 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
 
 #pragma mark - Archiving
 
-- (NSMutableArray *)currentTiles
+- (NSMutableArray *)cellsWithTile
 {
-    NSMutableArray *currentTiles = [[NSMutableArray alloc] init];
+    NSMutableArray *cellsWithTile = [[NSMutableArray alloc] init];
     
     if (_over) {
         //If user quits when game over,clear status
-        currentTiles = nil;
+        cellsWithTile = nil;
     } else {
         [_maingrid forEach:^(S2Position position) {
             S2Cell *cell = [_maingrid cellAtPosition:position];
             
             if (cell.tile) {
-                [currentTiles addObject:cell.tile];
+                [cellsWithTile addObject:cell];
             }
         } inReverseOrder:NO];
     }
     
-    return currentTiles;
+    return cellsWithTile;
 }
 
 - (NSString *)archivePath
@@ -229,7 +229,7 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
     NSArray *documentDirectories = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentDirectory = [documentDirectories objectAtIndex:0];
     
-    return [documentDirectory stringByAppendingPathComponent:@"tiles.archive"];
+    return [documentDirectory stringByAppendingPathComponent:@"cellsWithTile.archive"];
 }
 
 - (BOOL)saveStatus
@@ -238,7 +238,7 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
     
     [Settings setInteger:_score forKey:currentScore];
     
-    return [NSKeyedArchiver archiveRootObject:[self currentTiles] toFile:path];
+    return [NSKeyedArchiver archiveRootObject:[self cellsWithTile] toFile:path];
 }
 
 - (void)loadStatus:(NSMutableArray *)keyedUnarchiver onScene:(S2Scene *)scene
@@ -248,12 +248,15 @@ BOOL iterate(NSInteger value, BOOL countUp, NSInteger upper, NSInteger lower) {
 
     [scene loadBoardWithGrid:_maingrid];
     
-    for (S2Tile *tile in keyedUnarchiver) {
-        S2Cell *cell = [_maingrid cellAtPosition:S2PositionMake(tile.position.x, tile.position.y)];
-        cell.tile = tile;
-        
-        [scene addChild:tile];
+    for (S2Cell *cellWithTile in keyedUnarchiver) {
+        [_maingrid cellAtPosition:S2PositionMake(cellWithTile.position.x, cellWithTile.position.y)].tile = cellWithTile.tile;
+        [scene addChild:[_maingrid cellAtPosition:S2PositionMake(cellWithTile.position.x, cellWithTile.position.y)].tile];
     }
+    
+    [_maingrid forEach:^(S2Position position) {
+        if ([_maingrid cellAtPosition:position]) {
+        }
+    } inReverseOrder:NO];
 }
 
 
